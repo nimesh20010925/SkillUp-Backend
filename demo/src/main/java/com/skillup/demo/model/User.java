@@ -24,9 +24,9 @@ import lombok.Data;
 
 @Entity
 @Table(name = "users")
-@Data
 public class User {
-    @Id
+
+	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String username;
@@ -81,6 +81,7 @@ public class User {
 		this.stories = stories;
 		this.savedPost = savedPost;
 	}
+
 
 	public String getImage() {
 		return image;
@@ -248,5 +249,6 @@ public class User {
 				&& Objects.equals(username, other.username);
 	}
 	
-
+	
+	
 }

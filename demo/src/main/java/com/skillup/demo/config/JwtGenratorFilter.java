@@ -22,29 +22,34 @@ import jakarta.servlet.http.HttpServletResponse;
 
 public class JwtGenratorFilter extends OncePerRequestFilter {
 
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
-            throws ServletException, IOException {
-        
-                Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
-
-                if(authentication!=null) {
-                    SecretKey key=Keys.hmacShaKeyFor(SecurityContest.JWT_KEY.getBytes());
-                    
-                    String jwt=Jwts.builder()
-                            .setIssuer("skill up")
-                            .claim("authorities",populateAuthorities(authentication.getAuthorities()))
-                            .claim("username",authentication.getName())
-                            .setIssuedAt(new Date())
-                            .setExpiration(new Date(new Date().getTime()+ 30000000))
-                            .signWith(key).compact();
-                    
-                    
-                    response.setHeader(SecurityContest.HEADER, jwt);
-                }
-    }
-
-    private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
+	@Override
+	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
+			throws ServletException, IOException {
+		
+		
+		Authentication authentication=SecurityContextHolder.getContext().getAuthentication();
+		
+		if(authentication!=null) {
+			SecretKey key=Keys.hmacShaKeyFor(SecurityContest.JWT_KEY.getBytes());
+			
+			String jwt=Jwts.builder()
+					.setIssuer("Zos Academy")
+					.claim("authorities",populateAuthorities(authentication.getAuthorities()))
+					.claim("username",authentication.getName())
+					.setIssuedAt(new Date())
+					.setExpiration(new Date(new Date().getTime()+ 30000000))
+					.signWith(key).compact();
+			
+			
+			response.setHeader(SecurityContest.HEADER, jwt);
+		}
+		
+		filterChain.doFilter(request, response);
+		// TODO Auto-generated method stub
+		
+	}
+	
+	private String populateAuthorities(Collection<? extends GrantedAuthority> collection) {
         
     	Set<String> authoritiesSet = new HashSet<>();
         
@@ -55,13 +60,14 @@ public class JwtGenratorFilter extends OncePerRequestFilter {
    
     
     }
-
-    @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
+	
+	@Override
+	protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
 		
 				return !request.getServletPath().equals("/signin");	
 		
 	}
-    
+	
+
 
 }

@@ -5,40 +5,57 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import com.skillup.demo.exception.UserException;
 import com.skillup.demo.model.User;
 import com.skillup.demo.repository.UserRepository;
+import com.skillup.demo.security.JwtTokenProvider;
 import com.skillup.demo.services.UserService;
+import java.util.Map;
 
 @RestController
 public class AuthController {
+	
+	@Autowired
+	private UserRepository userRepo;
+	
+	@Autowired
+	private UserService userService;
+	
+	
+	@GetMapping("/signin")
+	public ResponseEntity<User> signinHandler(Authentication auth) throws BadCredentialsException{
+		
 
-    @Autowired
-    private UserRepository userRepo;
-    
-    @Autowired
-    private UserService userService;
-    
-    @GetMapping("/signin")
-    public ResponseEntity<User> signinHandler(Authentication auth) throws BadCredentialsException {
-        try {
-            User user = userRepo.findByEmail(auth.getName())
-                .orElseThrow(() -> new BadCredentialsException("Invalid Username or password"));
-            return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
-        } catch (BadCredentialsException ex) {
-            throw new BadCredentialsException("Invalid username or password");
-        }
-    }
-    
-    @PostMapping("/signup")
-    public ResponseEntity<User> registerUserHandler(@RequestBody User user) throws UserException {
-        User createdUser = userService.registerUser(user);
-        System.out.println("createdUser --- " + createdUser);
-        return new ResponseEntity<User>(createdUser, HttpStatus.CREATED);
-    }
+		
+		 try {
+		        User user = userRepo.findByEmail(auth.getName())
+		            .orElseThrow(() -> new BadCredentialsException("Invalid Username or password"));
+		        return new ResponseEntity<>(user, HttpStatus.ACCEPTED);
+		    } catch (BadCredentialsException ex) {
+		        throw new BadCredentialsException("Invalid username or password");
+		    }
+	
+	}
+	
+	@PostMapping("/signup")
+	public ResponseEntity<User> registerUserHandler(@RequestBody User user) throws UserException{
+		
+
+		
+		User createdUser=userService.registerUser(user);
+
+		System.out.println("createdUser --- "+createdUser);
+		
+		return new ResponseEntity<User>(createdUser,HttpStatus.CREATED);
+		
+		
+	}
+	
+	
+
 }

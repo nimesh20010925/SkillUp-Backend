@@ -9,13 +9,16 @@ import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import com.skillup.demo.model.User;
 import com.skillup.demo.repository.UserRepository;
 
+@Service
 public class UserUserDetailService implements UserDetailsService {
-
-    @Autowired
+	
+	@Autowired
 	private UserRepository userRepo;
 	
 	
@@ -35,7 +38,7 @@ public class UserUserDetailService implements UserDetailsService {
 			
 			System.out.println("errrrr ----------- "+ username);
 			
-			return new User(user.getEmail(), user.getPassword(), authorities);
+			return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), authorities);
 		}
 		
 			
