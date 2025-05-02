@@ -47,7 +47,7 @@ public class PostController {
 	}
 	
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/all/{userId}")
 	public ResponseEntity<List<Post>> findPostByUserIdHandler(@PathVariable("userId") Integer userId) throws UserException{
 		
