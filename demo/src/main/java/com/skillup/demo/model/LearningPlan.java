@@ -77,6 +77,12 @@ public class LearningPlan {
         return title;
     }
 
+    /**
+     * Sets the title of the learning plan.
+     * 
+     * @param title the learning plan title
+     */
+
     public void setTitle(String title) {
         this.title = title;
     }
