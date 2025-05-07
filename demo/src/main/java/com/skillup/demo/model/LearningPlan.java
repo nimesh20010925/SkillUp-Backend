@@ -30,6 +30,9 @@ public class LearningPlan {
     @NotBlank(message = "Title is mandatory")
     private String title;
 
+    /**
+     * Description of the learning plan, cannot be blank.
+     */
     @NotBlank(message = "Description is mandatory")
     private String description;
 
