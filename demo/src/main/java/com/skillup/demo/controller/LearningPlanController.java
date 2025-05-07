@@ -6,7 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;// For dependency injection
 import org.springframework.http.ResponseEntity;// For HTTP response handling
 import org.springframework.web.bind.annotation.DeleteMapping;//For DELETE request mapping
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.GetMapping;// For GET request mapping
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
