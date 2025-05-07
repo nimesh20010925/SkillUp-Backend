@@ -86,6 +86,12 @@ public class LearningPlanService {
         repository.deleteById(id);
     }
 
+    /**
+     * Simulates sending a notification for a newly created learning plan.
+     * Currently logs the notification to the console.
+     * 
+     * @param plan the LearningPlan for which to send a notification
+     */
     private void sendNotification(LearningPlan plan) {
         // Simulate sending a notification (e.g., email or log)
         System.out.println("Notification: Learning Plan '" + plan.getTitle() + "' created!");
