@@ -26,15 +26,19 @@ import com.skillup.demo.services.UserService;
 
 @RestController
 @RequestMapping("/api/comments")
+// Set up REST controller and base route for comments
 public class CommentController {
 
     @Autowired
 	private CommentService commentService;
 	
+	// Injected CommentService to handle business logic
+
 	@Autowired
 	private UserService userService;
 	
 	@PostMapping("/create/{postId}")
+	// API to create a comment on a post
 	public ResponseEntity<Comments> createCommentHandler(@RequestBody Comments comment, @PathVariable("postId") Integer postId,@RequestHeader("Authorization")String token) throws PostException, UserException{
 		User user = userService.findUserProfile(token);
 		
@@ -42,14 +46,17 @@ public class CommentController {
 		
 		System.out.println("created comment c--- "+createdComment.getContent());
 		
+		// Debug log for created comment content
 		return new ResponseEntity<Comments>(createdComment,HttpStatus.CREATED);
 		
 	}
 	
 	
 	@PutMapping("/like/{commentId}")
+	// API to like a comment by commentId
 	public ResponseEntity<Comments> likeCommentHandler(@PathVariable Integer commentId, @RequestHeader("Authorization")String token) throws UserException, CommentException{
 		System.out.println("----------- like comment id ---------- ");
+		// Debug log for incoming comment ID to be liked
 		User user = userService.findUserProfile(token);
 		Comments likedComment=commentService.likeComment(commentId, user.getId());
 		System.out.println("liked comment - : "+likedComment);
@@ -58,6 +65,7 @@ public class CommentController {
 	
 	
 	@PutMapping("/unlike/{commentId}")
+	// API to unlike a previously liked comment
 	public ResponseEntity<Comments> unlikeCommentHandler(@RequestHeader("Authorization")String token, @PathVariable Integer commentId) throws UserException, CommentException{
 		User user = userService.findUserProfile(token);
 		Comments likedComment=commentService.unlikeComment(commentId, user.getId());
@@ -66,33 +74,38 @@ public class CommentController {
 	}
 	
 	@PutMapping("/edit")
+	// Endpoint to edit a comment using PUT method
 	public ResponseEntity<MessageResponse> editCommentHandler(@RequestBody Comments comment) throws CommentException{
 		
 		commentService.editComment(comment, comment.getId());
 		
 		MessageResponse res=new MessageResponse("Comment Updated Successfully");
 		
+		// Return success message after comment update
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.ACCEPTED);
 	}
 	
 
 	@DeleteMapping("/delete/{commentId}")
+	// Endpoint to delete a comment by ID
 	public ResponseEntity<MessageResponse> deleteCommentHandler(@PathVariable Integer commentId) throws CommentException{
 		
 		commentService.deleteCommentById(commentId);
 		
 		MessageResponse res=new MessageResponse("Comment Delete Successfully");
+		// Response confirming comment was removed
 		
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.ACCEPTED);
 	}
 	
 	@GetMapping("/post/{postId}")
+	// Get all comments related to a specific post
 	public ResponseEntity<List<Comments>> getCommentHandler(@PathVariable Integer postId) throws CommentException, PostException{
 		
 		List<Comments> comments=commentService.findCommentByPostId(postId);
 		
 		MessageResponse res=new MessageResponse("Comment Updated Successfully");
-		
+		// Unused response created by mistake, could be removed
 		return new ResponseEntity<>(comments,HttpStatus.ACCEPTED);
 	}
 

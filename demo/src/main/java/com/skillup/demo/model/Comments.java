@@ -18,38 +18,45 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 
+// Created Comments entity for post discussions
 @Entity
 public class Comments {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	// Auto-generated primary key for each comment
 	private Integer id;
 	
 	@Embedded
 	@NotNull
 	@AttributeOverride(name="id",column = @Column(name="user_id"))
+	// Linked comment to user using embedded UserDto
 	private UserDto userDto;
 	
 	@NotNull
+	// Added field for comment text content
 	private String content;
 	
 	@Embedded
 	@ElementCollection
+	// Introduced like feature - track users who liked the comment
 	private Set<UserDto> likedByUsers= new HashSet<>();
 	
 	@ManyToOne
     @JoinColumn(name = "post_id")
+	// Establish relationship between comment and post
 	private Post post;
 	
+	// Added timestamp to track when comment was created
 	private LocalDateTime createdAt;
 	
 	
 	
-
+	// Default constructor for JPA
 	public Comments() {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	// All-args constructor for easier object creation
 	public Comments(Integer id, @NotNull UserDto userDto, @NotNull String content, Set<UserDto> likedByUsers, Post post,
 			LocalDateTime createdAt) {
 		super();
@@ -61,7 +68,7 @@ public class Comments {
 		this.createdAt = createdAt;
 	}
 
-
+	// Getter and setter for likedByUsers - useful for like/unlike operations
 	public Set<UserDto> getLikedByUsers() {
 		return likedByUsers;
 	}
