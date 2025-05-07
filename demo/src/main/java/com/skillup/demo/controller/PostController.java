@@ -106,7 +106,7 @@ public class PostController {
 				
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@DeleteMapping("/delete/{postId}")
 	public ResponseEntity<MessageResponse> deletePostHandler(@PathVariable Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
