@@ -45,6 +45,13 @@ public class LearningPlanService {
         return repository.findAll();
     }
 
+    /**
+     * Retrieves a learning plan by its ID.
+     * 
+     * @param id the ID of the learning plan to retrieve
+     * @return an Optional containing the LearningPlan if found, or empty if not
+     *         found
+     */
     public Optional<LearningPlan> getLearningPlanById(Long id) {
         return repository.findById(id);
     }
