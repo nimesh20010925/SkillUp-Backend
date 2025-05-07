@@ -59,6 +59,11 @@ public class LearningPlan {
         return id;
     }
 
+    /**
+     * Sets the unique identifier of the learning plan.
+     * 
+     * @param id the learning plan ID
+     */
     public void setId(Long id) {
         this.id = id;
     }
