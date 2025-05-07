@@ -68,6 +68,11 @@ public class LearningPlan {
         this.id = id;
     }
 
+    /**
+     * Gets the title of the learning plan.
+     * 
+     * @return the learning plan title
+     */
     public String getTitle() {
         return title;
     }
