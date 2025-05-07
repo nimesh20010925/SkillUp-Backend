@@ -93,6 +93,7 @@ public class CommentController {
 		commentService.deleteCommentById(commentId);
 		
 		MessageResponse res=new MessageResponse("Comment Delete Successfully");
+		// Response confirming comment was removed
 		
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.ACCEPTED);
 	}
