@@ -56,6 +56,7 @@ public class CommentController {
 	// API to like a comment by commentId
 	public ResponseEntity<Comments> likeCommentHandler(@PathVariable Integer commentId, @RequestHeader("Authorization")String token) throws UserException, CommentException{
 		System.out.println("----------- like comment id ---------- ");
+		// Debug log for incoming comment ID to be liked
 		User user = userService.findUserProfile(token);
 		Comments likedComment=commentService.likeComment(commentId, user.getId());
 		System.out.println("liked comment - : "+likedComment);
