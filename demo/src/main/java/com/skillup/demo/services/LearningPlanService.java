@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 import com.skillup.demo.model.LearningPlan;
 import com.skillup.demo.repository.LearningPlanRepository;
 
+/**
+ * Service class for managing business logic related to LearningPlan entities.
+ * Interacts with the LearningPlanRepository to perform CRUD operations and
+ * additional functionality.
+ */
 @Service
 public class LearningPlanService {
 
