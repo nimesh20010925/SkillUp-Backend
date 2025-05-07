@@ -35,7 +35,9 @@ public class LearningPlan {
      */
     @NotBlank(message = "Description is mandatory")
     private String description;
-
+    /**
+     * Start date of the learning plan, cannot be null.
+     */
     @NotNull(message = "Start date is mandatory")
     private LocalDate startDate;
 
