@@ -130,6 +130,7 @@ public class PostController {
 		return new ResponseEntity<>(res,HttpStatus.OK);
 	}
 	
+	// Get all posts by a specific user ID
 	@PutMapping("/unsave_post/{postId}")
 	public ResponseEntity<MessageResponse> unSavedPostHandler(@RequestHeader("Authorization")String token,@PathVariable Integer postId) throws UserException, PostException{
 		
