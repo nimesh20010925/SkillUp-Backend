@@ -32,6 +32,8 @@ public class CommentController {
     @Autowired
 	private CommentService commentService;
 	
+	// Injected CommentService to handle business logic
+	
 	@Autowired
 	private UserService userService;
 	
