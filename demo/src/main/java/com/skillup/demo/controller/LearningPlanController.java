@@ -31,6 +31,12 @@ public class LearningPlanController {
     @Autowired
     private LearningPlanService service;
 
+    /**
+     * Creates a new learning plan.
+     * 
+     * 
+     */
+
     @PostMapping
     public ResponseEntity<LearningPlan> createLearningPlan(@Valid @RequestBody LearningPlan plan) {
         LearningPlan createdPlan = service.createLearningPlan(plan);
