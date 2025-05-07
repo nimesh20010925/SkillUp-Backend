@@ -56,7 +56,7 @@ public class Comments {
 		// TODO Auto-generated constructor stub
 	}
 
-
+	// All-args constructor for easier object creation
 	public Comments(Integer id, @NotNull UserDto userDto, @NotNull String content, Set<UserDto> likedByUsers, Post post,
 			LocalDateTime createdAt) {
 		super();
