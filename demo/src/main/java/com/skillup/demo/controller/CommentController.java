@@ -81,6 +81,7 @@ public class CommentController {
 		
 		MessageResponse res=new MessageResponse("Comment Updated Successfully");
 		
+		// Return success message after comment update
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.ACCEPTED);
 	}
 	
