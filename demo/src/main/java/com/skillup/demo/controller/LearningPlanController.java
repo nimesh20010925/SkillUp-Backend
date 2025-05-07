@@ -19,6 +19,11 @@ import com.skillup.demo.services.LearningPlanService;
 
 import jakarta.validation.Valid;
 
+/**
+ * REST controller for managing LearningPlan resources.
+ * Provides endpoints for creating, retrieving, updating, and deleting learning
+ * plans.
+ */
 @RestController
 @RequestMapping("/api/learning-plans")
 public class LearningPlanController {
