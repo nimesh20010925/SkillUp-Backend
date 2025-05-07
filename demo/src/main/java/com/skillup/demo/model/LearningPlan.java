@@ -24,6 +24,9 @@ public class LearningPlan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    /**
+     * Title of the learning plan, cannot be blank.
+     */
     @NotBlank(message = "Title is mandatory")
     private String title;
 
