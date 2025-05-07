@@ -99,6 +99,7 @@ public class CommentController {
 	}
 	
 	@GetMapping("/post/{postId}")
+	// Get all comments related to a specific post
 	public ResponseEntity<List<Comments>> getCommentHandler(@PathVariable Integer postId) throws CommentException, PostException{
 		
 		List<Comments> comments=commentService.findCommentByPostId(postId);
