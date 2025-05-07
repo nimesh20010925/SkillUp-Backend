@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;// For dependency 
 import org.springframework.http.ResponseEntity;// For HTTP response handling
 import org.springframework.web.bind.annotation.DeleteMapping;//For DELETE request mapping
 import org.springframework.web.bind.annotation.GetMapping;// For GET request mapping
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PathVariable;// For URL path variable binding
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
