@@ -140,7 +140,8 @@ public class PostController {
 		
 		return new ResponseEntity<>(res,HttpStatus.OK);
 	}
-	
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
 	// Get all posts by a specific user ID
 	@PutMapping("/edit")
 	public ResponseEntity<MessageResponse> editPostHandler(@RequestBody Post post) throws PostException{
