@@ -38,6 +38,7 @@ public class Comments {
 	
 	@Embedded
 	@ElementCollection
+	// Introduced like feature - track users who liked the comment
 	private Set<UserDto> likedByUsers= new HashSet<>();
 	
 	@ManyToOne
