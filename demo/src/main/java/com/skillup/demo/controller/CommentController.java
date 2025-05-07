@@ -74,6 +74,7 @@ public class CommentController {
 	}
 	
 	@PutMapping("/edit")
+	// Endpoint to edit a comment using PUT method
 	public ResponseEntity<MessageResponse> editCommentHandler(@RequestBody Comments comment) throws CommentException{
 		
 		commentService.editComment(comment, comment.getId());
