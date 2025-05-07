@@ -9,6 +9,11 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
+/**
+ * Entity class representing a Learning Plan.
+ * Maps to a database table and defines the structure for storing learning plan
+ * data.
+ */
 @Entity
 public class LearningPlan {
 
