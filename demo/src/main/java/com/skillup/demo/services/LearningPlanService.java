@@ -23,6 +23,13 @@ public class LearningPlanService {
     @Autowired
     private LearningPlanRepository repository;
 
+    /**
+     * Creates a new learning plan and saves it to the database.
+     * Sends a notification after successful creation.
+     * 
+     * @param plan the LearningPlan object to be created
+     * @return the saved LearningPlan object
+     */
     public LearningPlan createLearningPlan(LearningPlan plan) {
         LearningPlan savedPlan = repository.save(plan);
         sendNotification(savedPlan); // Simulate notification
