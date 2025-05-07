@@ -2,7 +2,7 @@ package com.skillup.demo.controller;
 
 import java.util.List;
 import java.util.Optional;
-
+// Imports for handling Java collections, optional values, and Spring framework annotations
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
