@@ -26,6 +26,7 @@ import com.skillup.demo.services.UserService;
 
 @RestController
 @RequestMapping("/api/comments")
+// Set up REST controller and base route for comments
 public class CommentController {
 
     @Autowired
