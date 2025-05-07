@@ -105,7 +105,7 @@ public class CommentController {
 		List<Comments> comments=commentService.findCommentByPostId(postId);
 		
 		MessageResponse res=new MessageResponse("Comment Updated Successfully");
-		
+		// Unused response created by mistake, could be removed
 		return new ResponseEntity<>(comments,HttpStatus.ACCEPTED);
 	}
 
