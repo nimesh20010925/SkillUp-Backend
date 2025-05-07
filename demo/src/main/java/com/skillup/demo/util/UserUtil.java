@@ -20,4 +20,3 @@ public class UserUtil {
         Collections.sort(users, comparator);
     }	
 }
-

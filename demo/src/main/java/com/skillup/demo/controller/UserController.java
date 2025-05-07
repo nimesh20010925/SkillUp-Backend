@@ -18,6 +18,7 @@ import com.skillup.demo.exception.UserException;
 import com.skillup.demo.model.User;
 import com.skillup.demo.response.MessageResponse;
 import com.skillup.demo.services.UserService;
+import com.skillup.demo.services.Auth0UserService;
 
 @RestController
 @RequestMapping("/api/users")
@@ -25,6 +26,9 @@ public class UserController {
 
     @Autowired
 	private UserService userService;
+
+    @Autowired
+    private Auth0UserService auth0UserService;
 	
 	
 	
@@ -66,15 +70,10 @@ public class UserController {
 	}
 	
 	@GetMapping("/req")
-	public ResponseEntity<User> findUserProfileHandler(@RequestHeader("Authorization") String token) throws UserException{
-		
-		User user=userService.findUserProfile(token);
-		
-		
-		return new ResponseEntity<User>(user,HttpStatus.ACCEPTED);
-		
-
-	}
+	public ResponseEntity<User> findUserProfileHandler() throws UserException {
+        User user = auth0UserService.getCurrentUser();
+        return new ResponseEntity<User>(user, HttpStatus.ACCEPTED);
+    }
 	
 	@GetMapping("/m/{userIds}")
 	public ResponseEntity<List<User>> findAllUsersByUserIdsHandler(@PathVariable List<Integer> userIds){
