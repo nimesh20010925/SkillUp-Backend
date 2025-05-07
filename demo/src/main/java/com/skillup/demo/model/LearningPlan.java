@@ -87,6 +87,11 @@ public class LearningPlan {
         this.title = title;
     }
 
+    /**
+     * Gets the description of the learning plan.
+     * 
+     * @return the learning plan description
+     */
     public String getDescription() {
         return description;
     }
