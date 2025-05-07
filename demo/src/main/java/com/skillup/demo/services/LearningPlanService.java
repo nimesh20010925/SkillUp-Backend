@@ -56,6 +56,14 @@ public class LearningPlanService {
         return repository.findById(id);
     }
 
+    /**
+     * Updates an existing learning plan identified by its ID with new data.
+     * 
+     * @param id   the ID of the learning plan to update
+     * @param plan the LearningPlan object containing updated data
+     * @return the updated LearningPlan object if found, or null if the plan does
+     *         not exist
+     */
     public LearningPlan updateLearningPlan(Long id, LearningPlan plan) {
         Optional<LearningPlan> existingPlan = repository.findById(id);
         if (existingPlan.isPresent()) {
