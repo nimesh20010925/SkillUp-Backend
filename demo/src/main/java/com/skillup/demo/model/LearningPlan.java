@@ -41,6 +41,9 @@ public class LearningPlan {
     @NotNull(message = "Start date is mandatory")
     private LocalDate startDate;
 
+    /**
+     * End date of the learning plan, cannot be null.
+     */
     @NotNull(message = "End date is mandatory")
     private LocalDate endDate;
 
