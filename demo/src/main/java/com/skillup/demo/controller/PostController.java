@@ -33,6 +33,7 @@ public class PostController {
 	@Autowired
 	private UserService userService;
 	
+	// Create a new post
 	@PostMapping("/create")
 	public ResponseEntity<Post> createPostHandler(@RequestBody Post post,@RequestHeader("Authorization") String token) throws UserException{
 		
@@ -46,7 +47,7 @@ public class PostController {
 	}
 	
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/all/{userId}")
 	public ResponseEntity<List<Post>> findPostByUserIdHandler(@PathVariable("userId") Integer userId) throws UserException{
 		
@@ -56,7 +57,7 @@ public class PostController {
 	}
 	
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/following/{userIds}")
 	public ResponseEntity<List<Post>> findAllPostByUserIds(@PathVariable("userIds") List<Integer> userIds) throws PostException, UserException {
 		
@@ -66,7 +67,7 @@ public class PostController {
 		return new ResponseEntity<List<Post>>(posts,HttpStatus.OK);
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/")
 	public ResponseEntity<List<Post>> findAllPostHandler() throws PostException{
 		List<Post> posts=postService.findAllPost();
@@ -81,7 +82,7 @@ public class PostController {
 		return new ResponseEntity<Post>(post,HttpStatus.OK);
 	}
 	
-	
+// Get all posts by a specific user ID
 	@PutMapping("/like/{postId}")
 	public ResponseEntity<Post> likePostHandler(@PathVariable("postId") Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
@@ -93,7 +94,7 @@ public class PostController {
 		
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@PutMapping("/unlike/{postId}")
 	public ResponseEntity<Post> unLikePostHandler(@PathVariable("postId") Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
@@ -105,7 +106,7 @@ public class PostController {
 				
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@DeleteMapping("/delete/{postId}")
 	public ResponseEntity<MessageResponse> deletePostHandler(@PathVariable Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
@@ -118,7 +119,7 @@ public class PostController {
 		return new ResponseEntity<MessageResponse> (res, HttpStatus.OK);
 		
 	}
-	
+	// Get all posts by a specific user ID
 	@PutMapping("/save_post/{postId}")
 	public ResponseEntity<MessageResponse> savedPostHandler(@RequestHeader("Authorization")String token,@PathVariable Integer postId) throws UserException, PostException{
 		
@@ -129,6 +130,7 @@ public class PostController {
 		return new ResponseEntity<>(res,HttpStatus.OK);
 	}
 	
+	// Get all posts by a specific user ID
 	@PutMapping("/unsave_post/{postId}")
 	public ResponseEntity<MessageResponse> unSavedPostHandler(@RequestHeader("Authorization")String token,@PathVariable Integer postId) throws UserException, PostException{
 		
@@ -138,12 +140,26 @@ public class PostController {
 		
 		return new ResponseEntity<>(res,HttpStatus.OK);
 	}
-	
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
 	@PutMapping("/edit")
 	public ResponseEntity<MessageResponse> editPostHandler(@RequestBody Post post) throws PostException{
 		postService.editPost(post, null);
 		MessageResponse res=new MessageResponse("Post Updated Succefully");
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.OK);
 	}
+
+		// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
 
 }
