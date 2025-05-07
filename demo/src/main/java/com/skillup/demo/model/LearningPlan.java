@@ -48,6 +48,13 @@ public class LearningPlan {
     private LocalDate endDate;
 
     // Getters and Setters
+
+    /**
+     * Gets the unique identifier of the learning plan.
+     * 
+     * @return the learning plan ID
+     */
+    // Getters and Setters
     public Long getId() {
         return id;
     }
