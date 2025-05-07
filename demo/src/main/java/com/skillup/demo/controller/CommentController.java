@@ -87,6 +87,7 @@ public class CommentController {
 	
 
 	@DeleteMapping("/delete/{commentId}")
+	// Endpoint to delete a comment by ID
 	public ResponseEntity<MessageResponse> deleteCommentHandler(@PathVariable Integer commentId) throws CommentException{
 		
 		commentService.deleteCommentById(commentId);
