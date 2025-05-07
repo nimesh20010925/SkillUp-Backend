@@ -43,6 +43,7 @@ public class Comments {
 	
 	@ManyToOne
     @JoinColumn(name = "post_id")
+	// Establish relationship between comment and post
 	private Post post;
 	
 	private LocalDateTime createdAt;
