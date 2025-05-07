@@ -77,6 +77,11 @@ public class LearningPlanService {
         return null;
     }
 
+    /**
+     * Deletes a learning plan by its ID.
+     * 
+     * @param id the ID of the learning plan to delete
+     */
     public void deleteLearningPlan(Long id) {
         repository.deleteById(id);
     }
