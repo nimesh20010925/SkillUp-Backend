@@ -23,6 +23,7 @@ import jakarta.validation.constraints.NotNull;
 public class Comments {
     @Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	// Auto-generated primary key for each comment
 	private Integer id;
 	
 	@Embedded
