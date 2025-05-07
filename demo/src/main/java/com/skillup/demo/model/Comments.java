@@ -46,6 +46,7 @@ public class Comments {
 	// Establish relationship between comment and post
 	private Post post;
 	
+	// Added timestamp to track when comment was created
 	private LocalDateTime createdAt;
 	
 	
