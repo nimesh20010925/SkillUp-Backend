@@ -46,6 +46,7 @@ public class CommentController {
 		
 		System.out.println("created comment c--- "+createdComment.getContent());
 		
+		// Debug log for created comment content
 		return new ResponseEntity<Comments>(createdComment,HttpStatus.CREATED);
 		
 	}
