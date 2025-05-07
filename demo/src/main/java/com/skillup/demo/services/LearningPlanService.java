@@ -36,6 +36,11 @@ public class LearningPlanService {
         return savedPlan;
     }
 
+    /**
+     * Retrieves all learning plans from the database.
+     * 
+     * @return a list of all LearningPlan objects
+     */
     public List<LearningPlan> getAllLearningPlans() {
         return repository.findAll();
     }
