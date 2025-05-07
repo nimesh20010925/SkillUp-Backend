@@ -57,7 +57,7 @@ public class PostController {
 	}
 	
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/following/{userIds}")
 	public ResponseEntity<List<Post>> findAllPostByUserIds(@PathVariable("userIds") List<Integer> userIds) throws PostException, UserException {
 		
