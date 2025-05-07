@@ -43,11 +43,25 @@ public class LearningPlanController {
         return ResponseEntity.ok(createdPlan);
     }
 
+    /**
+     * Retrieves a list of all learning plans.
+     * 
+     * @return ResponseEntity containing the list of LearningPlans and HTTP status
+     *         200 (OK)
+     */
     @GetMapping
     public ResponseEntity<List<LearningPlan>> getAllLearningPlans() {
         return ResponseEntity.ok(service.getAllLearningPlans());
     }
 
+    /**
+     * Retrieves a learning plan by its ID.
+     * 
+     * @param id the ID of the learning plan to retrieve
+     * @return ResponseEntity containing the LearningPlan and HTTP status 200 (OK)
+     *         if
+     *         found, or HTTP status 404 (Not Found) if not found
+     */
     @GetMapping("/{id}")
     public ResponseEntity<LearningPlan> getLearningPlanById(@PathVariable Long id) {
         Optional<LearningPlan> plan = service.getLearningPlanById(id);
