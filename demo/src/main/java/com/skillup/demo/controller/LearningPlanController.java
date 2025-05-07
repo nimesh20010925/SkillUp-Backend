@@ -69,6 +69,15 @@ public class LearningPlanController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
+    /**
+     * Updates an existing learning plan.
+     * 
+     * @param id   the ID of the learning plan to update
+     * @param plan the updated LearningPlan object
+     * @return ResponseEntity containing the updated LearningPlan and HTTP status
+     *         200 (OK) if found, or HTTP status 404 (Not Found) if not found
+     */
+
     @PutMapping("/{id}")
     public ResponseEntity<LearningPlan> updateLearningPlan(@PathVariable Long id,
             @Valid @RequestBody LearningPlan plan) {
@@ -78,6 +87,14 @@ public class LearningPlanController {
         }
         return ResponseEntity.notFound().build();
     }
+
+    /**
+     * Deletes a learning plan by its ID.
+     * 
+     * @param id the ID of the learning plan to delete
+     * @return ResponseEntity with HTTP status 204 (No Content) if deleted, or HTTP
+     *         status 404 (Not Found) if not found
+     */
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteLearningPlan(@PathVariable Long id) {
