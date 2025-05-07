@@ -5,7 +5,7 @@ import java.util.Optional;
 // Imports for handling Java collections, optional values, and Spring framework annotations
 import org.springframework.beans.factory.annotation.Autowired;// For dependency injection
 import org.springframework.http.ResponseEntity;// For HTTP response handling
-import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;//For DELETE request mapping
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
