@@ -33,11 +33,12 @@ public class CommentController {
 	private CommentService commentService;
 	
 	// Injected CommentService to handle business logic
-	
+
 	@Autowired
 	private UserService userService;
 	
 	@PostMapping("/create/{postId}")
+	// API to create a comment on a post
 	public ResponseEntity<Comments> createCommentHandler(@RequestBody Comments comment, @PathVariable("postId") Integer postId,@RequestHeader("Authorization")String token) throws PostException, UserException{
 		User user = userService.findUserProfile(token);
 		
