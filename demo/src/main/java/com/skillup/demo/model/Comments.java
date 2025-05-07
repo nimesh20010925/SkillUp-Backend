@@ -68,7 +68,7 @@ public class Comments {
 		this.createdAt = createdAt;
 	}
 
-
+	// Getter and setter for likedByUsers - useful for like/unlike operations
 	public Set<UserDto> getLikedByUsers() {
 		return likedByUsers;
 	}
