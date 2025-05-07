@@ -53,6 +53,7 @@ public class CommentController {
 	
 	
 	@PutMapping("/like/{commentId}")
+	// API to like a comment by commentId
 	public ResponseEntity<Comments> likeCommentHandler(@PathVariable Integer commentId, @RequestHeader("Authorization")String token) throws UserException, CommentException{
 		System.out.println("----------- like comment id ---------- ");
 		User user = userService.findUserProfile(token);
