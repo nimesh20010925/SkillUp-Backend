@@ -18,6 +18,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotNull;
 
+// Created Comments entity for post discussions
 @Entity
 public class Comments {
     @Id
