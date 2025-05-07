@@ -65,6 +65,7 @@ public class CommentController {
 	
 	
 	@PutMapping("/unlike/{commentId}")
+	// API to unlike a previously liked comment
 	public ResponseEntity<Comments> unlikeCommentHandler(@RequestHeader("Authorization")String token, @PathVariable Integer commentId) throws UserException, CommentException{
 		User user = userService.findUserProfile(token);
 		Comments likedComment=commentService.unlikeComment(commentId, user.getId());
