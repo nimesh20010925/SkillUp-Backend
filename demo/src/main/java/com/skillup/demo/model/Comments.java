@@ -33,6 +33,7 @@ public class Comments {
 	private UserDto userDto;
 	
 	@NotNull
+	// Added field for comment text content
 	private String content;
 	
 	@Embedded
