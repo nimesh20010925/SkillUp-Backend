@@ -51,7 +51,7 @@ public class Comments {
 	
 	
 	
-
+	// Default constructor for JPA
 	public Comments() {
 		// TODO Auto-generated constructor stub
 	}
