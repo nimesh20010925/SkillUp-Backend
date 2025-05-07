@@ -17,6 +17,9 @@ import com.skillup.demo.repository.LearningPlanRepository;
 @Service
 public class LearningPlanService {
 
+    /**
+     * Repository for accessing LearningPlan data in the database.
+     */
     @Autowired
     private LearningPlanRepository repository;
 
