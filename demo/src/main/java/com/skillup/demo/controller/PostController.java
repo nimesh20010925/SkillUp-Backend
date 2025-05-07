@@ -94,7 +94,7 @@ public class PostController {
 		
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@PutMapping("/unlike/{postId}")
 	public ResponseEntity<Post> unLikePostHandler(@PathVariable("postId") Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
