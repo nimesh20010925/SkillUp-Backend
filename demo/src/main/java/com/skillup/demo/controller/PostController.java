@@ -158,4 +158,8 @@ public class PostController {
 	// Get all posts by a specific user ID
 	// Get all posts by a specific user ID
 
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+
 }
