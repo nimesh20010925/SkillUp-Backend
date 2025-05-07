@@ -29,6 +29,7 @@ public class Comments {
 	@Embedded
 	@NotNull
 	@AttributeOverride(name="id",column = @Column(name="user_id"))
+	// Linked comment to user using embedded UserDto
 	private UserDto userDto;
 	
 	@NotNull
