@@ -150,4 +150,8 @@ public class PostController {
 		return new ResponseEntity<MessageResponse>(res,HttpStatus.OK);
 	}
 
+		// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+	// Get all posts by a specific user ID
+
 }
