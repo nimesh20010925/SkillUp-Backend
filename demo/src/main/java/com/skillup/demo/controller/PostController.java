@@ -67,7 +67,7 @@ public class PostController {
 		return new ResponseEntity<List<Post>>(posts,HttpStatus.OK);
 	}
 	
-	
+	// Get all posts by a specific user ID
 	@GetMapping("/")
 	public ResponseEntity<List<Post>> findAllPostHandler() throws PostException{
 		List<Post> posts=postService.findAllPost();
@@ -82,7 +82,7 @@ public class PostController {
 		return new ResponseEntity<Post>(post,HttpStatus.OK);
 	}
 	
-	
+// Get all posts by a specific user ID
 	@PutMapping("/like/{postId}")
 	public ResponseEntity<Post> likePostHandler(@PathVariable("postId") Integer postId, @RequestHeader("Authorization") String token) throws UserException, PostException{
 		
